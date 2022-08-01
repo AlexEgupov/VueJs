@@ -3,7 +3,7 @@
     <div class="banner contactspage-banner">
       <div class="container">
         <div class="row">
-          <div class="col">
+          <div class="col-lg-6">
             <nav-bar-component />
           </div>
         </div>
@@ -88,9 +88,8 @@
 
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
-import CartComponent from "@/components/CartComponent.vue";
 
 export default {
-  components: { NavBarComponent, CartComponent },
+  components: { NavBarComponent },
 };
 </script>
