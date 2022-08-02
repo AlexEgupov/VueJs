@@ -9,7 +9,7 @@
         </div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
-            <h1 class="title-big">Everything You Love About Coffee</h1>
+            <title-component title="Everything You Love About Coffee" />
             <img
               class="beanslogo"
               src="@/assets/logo/Beans_logo.svg"
@@ -59,30 +59,24 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <div class="best__item">
-                <img
-                  :src="require(`@/assets//img/${cards[0].icon}`)"
-                  :alt="cards[0].icon"
-                />
-                <div class="best__item-title">{{ cards[0].text }}</div>
-                <div class="best__item-price">{{ cards[0].price }}</div>
-              </div>
-              <div class="best__item">
-                <img
-                  :src="require(`@/assets//img/${cards[1].icon}`)"
-                  :alt="cards[1].icon"
-                />
-                <div class="best__item-title">{{ cards[1].text }}</div>
-                <div class="best__item-price">{{ cards[1].price }}</div>
-              </div>
-              <div class="best__item">
-                <img
-                  :src="require(`@/assets//img/${cards[2].icon}`)"
-                  :alt="cards[2].icon"
-                />
-                <div class="best__item-title">{{ cards[2].text }}</div>
-                <div class="best__item-price">{{ cards[2].price }}</div>
-              </div>
+              <card-component
+                classItem="best__item"
+                :image="cards[0].image"
+                :text="cards[0].text"
+                :price="cards[0].price"
+              />
+              <card-component
+                classItem="best__item"
+                :image="cards[1].image"
+                :text="cards[1].text"
+                :price="cards[1].price"
+              />
+              <card-component
+                classItem="best__item"
+                :image="cards[2].image"
+                :text="cards[2].text"
+                :price="cards[2].price"
+              />
             </div>
           </div>
         </div>
@@ -94,29 +88,30 @@
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
+import TitleComponent from "@/components/TitleComponent.vue";
 
 export default {
-  components: { NavBarComponent, CardComponent },
+  components: { NavBarComponent, CardComponent, TitleComponent },
   data() {
     return {
       cards: [
         {
           id: 0,
-          icon: "coffee-1.jpg",
+          image: "coffee-1.jpg",
           text: "Solimo Coffee Beans 2kg",
-          price: "10.73$",
+          price: 10.73,
         },
         {
           id: 1,
-          icon: "coffee-2.jpg",
+          image: "coffee-2.jpg",
           text: "Presto Coffee Beans 1kg",
-          price: "15.99$",
+          price: 15.99,
         },
         {
           id: 2,
-          icon: "coffee-3.jpg",
+          image: "coffee-3.jpg",
           text: "AROMISTICO Coffee 1kg",
-          price: "6.99$",
+          price: 6.99,
         },
       ],
     };

@@ -12,15 +12,21 @@
                 />
               </router-link>
             </li>
-            <li class="footer__item">
-              <router-link :to="links[1].link">{{ links[1].text }}</router-link>
-            </li>
-            <li class="footer__item">
-              <router-link :to="links[2].link">{{ links[2].text }}</router-link>
-            </li>
-            <li class="footer__item">
-              <router-link :to="links[3].link">{{ links[3].text }}</router-link>
-            </li>
+            <link-component
+              classItem="footer__item"
+              :text="links[1].text"
+              :link="links[1].link"
+            />
+            <link-component
+              classItem="footer__item"
+              :text="links[2].text"
+              :link="links[2].link"
+            />
+            <link-component
+              classItem="footer__item"
+              :text="links[3].text"
+              :link="links[3].link"
+            />
           </ul>
         </div>
       </div>
@@ -34,7 +40,10 @@
 </template>
 
 <script>
+import LinkComponent from "./LinkComponent.vue";
+
 export default {
+  components: { LinkComponent },
   data() {
     return {
       links: [
