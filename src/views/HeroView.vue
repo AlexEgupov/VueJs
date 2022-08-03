@@ -65,7 +65,7 @@
                 :image="card.image"
                 :text="card.text"
                 :price="card.price"
-                classItem="shop__item"
+                classItem="best__item"
               />
             </div>
           </div>
