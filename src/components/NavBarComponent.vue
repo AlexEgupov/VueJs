@@ -8,28 +8,19 @@
         flex-wrap
       "
     >
-      <li class="header__item">
-        <router-link :to="links[0].link">
-          <img
-            :src="require(`@/assets/logo/${links[0].icon}`)"
-            :alt="links[0].icon"
-          />
-        </router-link>
-      </li>
+      <link-component :link="links.header.link" classItem="header__item">
+        <img
+          :src="require(`@/assets/logo/${links.header.icon}`)"
+          :alt="links.header.icon"
+        />
+      </link-component>
+
       <link-component
+        v-for="link in links.other"
+        :key="link.id"
+        :text="link.text"
+        :link="link.link"
         classItem="header__item"
-        :text="links[1].text"
-        :link="links[1].link"
-      />
-      <link-component
-        classItem="header__item"
-        :text="links[2].text"
-        :link="links[2].link"
-      />
-      <link-component
-        classItem="header__item"
-        :text="links[3].text"
-        :link="links[3].link"
       />
     </ul>
   </header>
@@ -37,33 +28,36 @@
 
 <script>
 import LinkComponent from "./LinkComponent.vue";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: { LinkComponent },
   data() {
     return {
-      links: [
-        {
-          id: 0,
+      links: {
+        header: {
+          id: uuidv4(),
           link: "/",
           icon: "Logo.svg",
         },
-        {
-          id: 1,
-          link: "/our-coffee",
-          text: "Our coffee",
-        },
-        {
-          id: 2,
-          link: "/for-your-pleasure",
-          text: "For your pleasure",
-        },
-        {
-          id: 3,
-          link: "/contacts",
-          text: "Contact us",
-        },
-      ],
+        other: [
+          {
+            id: uuidv4(),
+            link: "/our-coffee",
+            text: "Our coffee",
+          },
+          {
+            id: uuidv4(),
+            link: "/for-your-pleasure",
+            text: "For your pleasure",
+          },
+          {
+            id: uuidv4(),
+            link: "/contacts",
+            text: "Contact us",
+          },
+        ],
+      },
     };
   },
 };

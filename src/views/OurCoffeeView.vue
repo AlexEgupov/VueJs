@@ -70,40 +70,12 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-component
+                v-for="bean in coffee"
+                :key="bean.id"
+                :image="bean.image"
+                :text="bean.text"
+                :price="bean.price"
                 classItem="shop__item"
-                :image="coffee[0].image"
-                :text="coffee[0].text"
-                :price="coffee[0].price"
-              />
-              <card-component
-                classItem="shop__item"
-                :image="coffee[1].image"
-                :text="coffee[1].text"
-                :price="coffee[1].price"
-              />
-              <card-component
-                classItem="shop__item"
-                :image="coffee[2].image"
-                :text="coffee[2].text"
-                :price="coffee[2].price"
-              />
-              <card-component
-                classItem="shop__item"
-                :image="coffee[3].image"
-                :text="coffee[3].text"
-                :price="coffee[3].price"
-              />
-              <card-component
-                classItem="shop__item"
-                :image="coffee[4].image"
-                :text="coffee[4].text"
-                :price="coffee[4].price"
-              />
-              <card-component
-                classItem="shop__item"
-                :image="coffee[5].image"
-                :text="coffee[5].text"
-                :price="coffee[5].price"
               />
             </div>
           </div>
@@ -117,6 +89,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
 import TitleComponent from "@/components/TitleComponent.vue";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: { NavBarComponent, CardComponent, TitleComponent },
@@ -124,37 +97,37 @@ export default {
     return {
       coffee: [
         {
-          id: 0,
+          id: uuidv4(),
           image: "coffee-1.jpg",
           text: "Solimo Coffee Beans 2kg",
           price: "10.73",
         },
         {
-          id: 1,
+          id: uuidv4(),
           image: "coffee-2.jpg",
           text: "Presto Coffee Beans 1kg",
           price: "15.99",
         },
         {
-          id: 2,
+          id: uuidv4(),
           image: "coffee-3.jpg",
           text: "AROMISTICO Coffee 1kg",
           price: "6.99",
         },
         {
-          id: 3,
+          id: uuidv4(),
           image: "coffee-3.jpg",
           text: "AROMISTICO Coffee 1kg",
           price: "6.99",
         },
         {
-          id: 4,
+          id: uuidv4(),
           image: "coffee-2.jpg",
           text: "Presto Coffee Beans 1kg",
           price: "15.99",
         },
         {
-          id: 5,
+          id: uuidv4(),
           image: "coffee-1.jpg",
           text: "Solimo Coffee Beans 2kg",
           price: "10.73",

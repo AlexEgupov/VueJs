@@ -60,22 +60,12 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
               <card-component
-                classItem="best__item"
-                :image="cards[0].image"
-                :text="cards[0].text"
-                :price="cards[0].price"
-              />
-              <card-component
-                classItem="best__item"
-                :image="cards[1].image"
-                :text="cards[1].text"
-                :price="cards[1].price"
-              />
-              <card-component
-                classItem="best__item"
-                :image="cards[2].image"
-                :text="cards[2].text"
-                :price="cards[2].price"
+                v-for="card in cards"
+                :key="card.id"
+                :image="card.image"
+                :text="card.text"
+                :price="card.price"
+                classItem="shop__item"
               />
             </div>
           </div>
@@ -89,6 +79,7 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
 import TitleComponent from "@/components/TitleComponent.vue";
+import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: { NavBarComponent, CardComponent, TitleComponent },
@@ -96,19 +87,19 @@ export default {
     return {
       cards: [
         {
-          id: 0,
+          id: uuidv4(),
           image: "coffee-1.jpg",
           text: "Solimo Coffee Beans 2kg",
           price: 10.73,
         },
         {
-          id: 1,
+          id: uuidv4(),
           image: "coffee-2.jpg",
           text: "Presto Coffee Beans 1kg",
           price: 15.99,
         },
         {
-          id: 2,
+          id: uuidv4(),
           image: "coffee-3.jpg",
           text: "AROMISTICO Coffee 1kg",
           price: 6.99,
