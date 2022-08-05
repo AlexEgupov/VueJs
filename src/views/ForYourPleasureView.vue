@@ -49,7 +49,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <card-component
-                v-for="good in goods"
+                v-for="good in goods.goods"
                 :key="good.id"
                 :image="good.image"
                 :text="good.text"
@@ -68,51 +68,13 @@
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
 import TitleComponent from "@/components/TitleComponent.vue";
-import { v4 as uuidv4 } from "uuid";
 
 export default {
   components: { NavBarComponent, CardComponent, TitleComponent },
-  data() {
-    return {
-      goods: [
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          text: "Solimo Coffee Beans 2kg",
-          price: "10.73",
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          text: "Presto Coffee Beans 1kg",
-          price: "15.99",
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          text: "AROMISTICO Coffee 1kg",
-          price: "6.99",
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          text: "Solimo Coffee Beans 2kg",
-          price: "10.73",
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          text: "Presto Coffee Beans 1kg",
-          price: "15.99",
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          text: "AROMISTICO Coffee 1kg",
-          price: "6.99",
-        },
-      ],
-    };
+  computed: {
+    goods() {
+      return this.$store.getters["getCoffeeItems"];
+    },
   },
 };
 </script>

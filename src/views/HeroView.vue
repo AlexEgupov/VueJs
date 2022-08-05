@@ -65,11 +65,11 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
               <card-component
-                v-for="card in cards"
-                :key="card.id"
-                :image="card.image"
-                :text="card.text"
-                :price="card.price"
+                v-for="good in goods.goodsMain"
+                :key="good.id"
+                :image="good.image"
+                :text="good.text"
+                :price="good.price"
                 classItem="best__item"
               />
             </div>
@@ -85,34 +85,14 @@ import NavBarComponent from "@/components/NavBarComponent.vue";
 import CardComponent from "@/components/CardComponent.vue";
 import TitleComponent from "@/components/TitleComponent.vue";
 
-import { v4 as uuidv4 } from "uuid";
 import { scrollIntoView } from "seamless-scroll-polyfill";
 
 export default {
   components: { NavBarComponent, CardComponent, TitleComponent },
-  data() {
-    return {
-      cards: [
-        {
-          id: uuidv4(),
-          image: "coffee-1.jpg",
-          text: "Solimo Coffee Beans 2kg",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-2.jpg",
-          text: "Presto Coffee Beans 1kg",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          image: "coffee-3.jpg",
-          text: "AROMISTICO Coffee 1kg",
-          price: 6.99,
-        },
-      ],
-    };
+  computed: {
+    goods() {
+      return this.$store.getters["getMainCoffeeItems"];
+    },
   },
   methods: {
     smoothScroll() {
