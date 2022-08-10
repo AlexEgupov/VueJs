@@ -65,11 +65,9 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
               <card-component
-                v-for="good in goods.goodsMain"
-                :key="good.id"
-                :image="good.image"
-                :text="good.text"
-                :price="good.price"
+                v-for="card in bestsellers.bestsellers"
+                :key="card.id"
+                :card="card"
                 classItem="best__item"
               />
             </div>
@@ -90,8 +88,8 @@ import { scrollIntoView } from "seamless-scroll-polyfill";
 export default {
   components: { NavBarComponent, CardComponent, TitleComponent },
   computed: {
-    goods() {
-      return this.$store.getters["getMainCoffeeItems"];
+    bestsellers() {
+      return this.$store.getters["getBestsellers"];
     },
   },
   methods: {

@@ -6,7 +6,7 @@
 export default {
   props: {
     title: {
-      tupe: [String, Number],
+      type: [String, Number],
       required: true,
     },
   },

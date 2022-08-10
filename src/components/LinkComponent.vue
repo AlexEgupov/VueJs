@@ -8,11 +8,11 @@
 export default {
   props: {
     link: {
-      tupe: String,
+      type: String,
       required: true,
     },
     text: {
-      tupe: [String, Number],
+      type: [String, Number],
       required: false,
     },
     classItem: {
